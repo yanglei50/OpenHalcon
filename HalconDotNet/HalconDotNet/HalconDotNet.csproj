@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F440A4B7-D568-4163-9F6B-F7AF409F33AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HalconDotNet</RootNamespace>
+    <AssemblyName>HalconDotNet</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationException.cs" />
+    <Compile Include="DevClearWindowDelegate.cs" />
+    <Compile Include="DevCloseWindowDelegate.cs" />
+    <Compile Include="DevDisplayDelegate.cs" />
+    <Compile Include="DevDispTextDelegate.cs" />
+    <Compile Include="DevGetWindowDelegate.cs" />
+    <Compile Include="DevOpenWindowDelegate.cs" />
+    <Compile Include="DevSetColorDelegate.cs" />
+    <Compile Include="DevSetColoredDelegate.cs" />
+    <Compile Include="DevSetDrawDelegate.cs" />
+    <Compile Include="DevSetLineWidthDelegate.cs" />
+    <Compile Include="DevSetLutDelegate.cs" />
+    <Compile Include="DevSetPaintDelegate.cs" />
+    <Compile Include="DevSetPartDelegate.cs" />
+    <Compile Include="DevSetShapeDelegate.cs" />
+    <Compile Include="DevSetWindowDelegate.cs" />
+    <Compile Include="DevSetWindowExtentsDelegate.cs" />
+    <Compile Include="EngineAPI.cs" />
+    <Compile Include="HalconAPI.cs" />
+    <Compile Include="HalconException.cs" />
+    <Compile Include="HBarCode.cs" />
+    <Compile Include="HBgEsti.cs" />
+    <Compile Include="HCalibData.cs" />
+    <Compile Include="HCameraSetupModel.cs" />
+    <Compile Include="HCamPar.cs" />
+    <Compile Include="HClassBox.cs" />
+    <Compile Include="HClassGmm.cs" />
+    <Compile Include="HClassKnn.cs" />
+    <Compile Include="HClassLUT.cs" />
+    <Compile Include="HClassMlp.cs" />
+    <Compile Include="HClassSvm.cs" />
+    <Compile Include="HClassTrainData.cs" />
+    <Compile Include="HColorTransLUT.cs" />
+    <Compile Include="HComponentModel.cs" />
+    <Compile Include="HComponentTraining.cs" />
+    <Compile Include="HData.cs" />
+    <Compile Include="HDataCode2D.cs" />
+    <Compile Include="HDeformableModel.cs" />
+    <Compile Include="HDeformableSurfaceMatchingResult.cs" />
+    <Compile Include="HDeformableSurfaceModel.cs" />
+    <Compile Include="HDescriptorModel.cs" />
+    <Compile Include="HDevEngineException.cs" />
+    <Compile Include="HDrawingObject.cs" />
+    <Compile Include="HFeatureSet.cs" />
+    <Compile Include="HFile.cs" />
+    <Compile Include="HFramegrabber.cs" />
+    <Compile Include="HFunction1D.cs" />
+    <Compile Include="HGnuplot.cs" />
+    <Compile Include="HHomMat2D.cs" />
+    <Compile Include="HHomMat3D.cs" />
+    <Compile Include="HImage.cs" />
+    <Compile Include="HMeasure.cs" />
+    <Compile Include="HNCCModel.cs" />
+    <Compile Include="HObject.cs" />
+    <Compile Include="HObjectBase.cs" />
+    <Compile Include="HObjectModel3D.cs" />
+    <Compile Include="HObjectVector.cs" />
+    <Compile Include="HOCRBox.cs" />
+    <Compile Include="HOCRCnn.cs" />
+    <Compile Include="HOCRKnn.cs" />
+    <Compile Include="HOCRMlp.cs" />
+    <Compile Include="HOCRSvm.cs" />
+    <Compile Include="HOCV.cs" />
+    <Compile Include="HOperatorException.cs" />
+    <Compile Include="HOperatorSet.cs" />
+    <Compile Include="HPose.cs" />
+    <Compile Include="HRegion.cs" />
+    <Compile Include="HSampleIdentifier.cs" />
+    <Compile Include="HScene3D.cs" />
+    <Compile Include="HSerializedItem.cs" />
+    <Compile Include="HShapeModel.cs" />
+    <Compile Include="HShapeModel3D.cs" />
+    <Compile Include="HSheetOfLightModel.cs" />
+    <Compile Include="HSocket.cs" />
+    <Compile Include="HStereoModel.cs" />
+    <Compile Include="HSurfaceMatchingResult.cs" />
+    <Compile Include="HSurfaceModel.cs" />
+    <Compile Include="HTemplate.cs" />
+    <Compile Include="HTextModel.cs" />
+    <Compile Include="HTextResult.cs" />
+    <Compile Include="HTextureInspectionModel.cs" />
+    <Compile Include="HTextureInspectionResult.cs" />
+    <Compile Include="HTool.cs" />
+    <Compile Include="HTuple.cs" />
+    <Compile Include="HTupleAccessException.cs" />
+    <Compile Include="HTupleDouble.cs" />
+    <Compile Include="HTupleElements.cs" />
+    <Compile Include="HTupleElementsDouble.cs" />
+    <Compile Include="HTupleElementsImplementation.cs" />
+    <Compile Include="HTupleElementsInt32.cs" />
+    <Compile Include="HTupleElementsInt64.cs" />
+    <Compile Include="HTupleElementsMixed.cs" />
+    <Compile Include="HTupleElementsString.cs" />
+    <Compile Include="HTupleImplementation.cs" />
+    <Compile Include="HTupleInt32.cs" />
+    <Compile Include="HTupleInt64.cs" />
+    <Compile Include="HTupleMixed.cs" />
+    <Compile Include="HTupleString.cs" />
+    <Compile Include="HTupleType.cs" />
+    <Compile Include="HTupleVector.cs" />
+    <Compile Include="HTupleVoid.cs" />
+    <Compile Include="HVariationModel.cs" />
+    <Compile Include="HVector.cs" />
+    <Compile Include="HVectorAccessException.cs" />
+    <Compile Include="HWindow.cs" />
+    <Compile Include="HXLD.cs" />
+    <Compile Include="HXLDCont.cs" />
+    <Compile Include="HXLDExtPara.cs" />
+    <Compile Include="HXLDModPara.cs" />
+    <Compile Include="HXLDPara.cs" />
+    <Compile Include="HXLDPoly.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

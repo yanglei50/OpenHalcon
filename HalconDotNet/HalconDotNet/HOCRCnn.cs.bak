@@ -1,0 +1,6 @@
+﻿namespace HalconDotNet
+{
+    public class HOCRCnn
+    {
+    }
+}
