@@ -12,7 +12,7 @@ namespace HalconDotNet
 {
     /// <summary>Communication with hdevengine.dll</summary>
     [SuppressUnmanagedCodeSecurity]
-    internal class EngineAPI
+    public class EngineAPI
     {
         private const string EngineDLL = "hdevenginecppxl";
         private const CallingConvention EngineCall = CallingConvention.Cdecl;
@@ -181,6 +181,11 @@ namespace HalconDotNet
             EngineAPI.HCkE(HalconAPI.DestroyTuple(tuple3));
             EngineAPI.HCkE(HalconAPI.DestroyTuple(tuple4));
         }
+
+        //public int CreateTupleVector(HTupleVector vector, out IntPtr vectorHandle)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         [DllImport("hdevenginecppxl", EntryPoint = "HCenProgGetUsedProcedureNames", CallingConvention = CallingConvention.Cdecl)]
         internal static extern int GetUsedProcedureNamesForProgram(IntPtr program, IntPtr tuple);

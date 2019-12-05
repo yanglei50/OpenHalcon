@@ -124,7 +124,7 @@ namespace HalconDotNet
 
         protected IntPtr DelegateToCallbackPointer(HDrawingObject.HDrawingObjectCallback c)
         {
-            return Marshal.GetFunctionPointerForDelegate((Delegate)c);
+            return Marshal.GetFunctionPointerForDelegate(c);
         }
 
         protected IntPtr DelegateToCallbackPointer(
@@ -159,7 +159,7 @@ namespace HalconDotNet
                     this.onselect = hdrawingObjectCallback;
                     break;
             }
-            return Marshal.GetFunctionPointerForDelegate((Delegate)hdrawingObjectCallback);
+            return Marshal.GetFunctionPointerForDelegate(hdrawingObjectCallback);
         }
 
         /// <summary>Adds a callback for the resize event, that is, this callback is
@@ -169,7 +169,7 @@ namespace HalconDotNet
         /// HDrawingObjectCallback</param>
         public void OnResize(HDrawingObject.HDrawingObjectCallback f)
         {
-            this.SetDrawingObjectCallback("on_resize", Marshal.GetFunctionPointerForDelegate((Delegate)f));
+            this.SetDrawingObjectCallback("on_resize", Marshal.GetFunctionPointerForDelegate(f));
         }
 
         /// <summary>Adds a callback for the attach event, that is, this callback is
@@ -178,7 +178,7 @@ namespace HalconDotNet
         /// HDrawingObjectCallback</param>
         public void OnAttach(HDrawingObject.HDrawingObjectCallback f)
         {
-            this.SetDrawingObjectCallback("on_attach", Marshal.GetFunctionPointerForDelegate((Delegate)f));
+            this.SetDrawingObjectCallback("on_attach", Marshal.GetFunctionPointerForDelegate(f));
         }
 
         /// <summary>Adds a callback for the detach event, that is, this callback is
@@ -187,7 +187,7 @@ namespace HalconDotNet
         /// HDrawingObjectCallback</param>
         public void OnDetach(HDrawingObject.HDrawingObjectCallback f)
         {
-            this.SetDrawingObjectCallback("on_detach", Marshal.GetFunctionPointerForDelegate((Delegate)f));
+            this.SetDrawingObjectCallback("on_detach", Marshal.GetFunctionPointerForDelegate(f));
         }
 
         /// <summary>Adds a callback for the resize event, that is, this callback is
@@ -196,7 +196,7 @@ namespace HalconDotNet
         /// HDrawingObjectCallback</param>
         public void OnDrag(HDrawingObject.HDrawingObjectCallback f)
         {
-            this.SetDrawingObjectCallback("on_drag", Marshal.GetFunctionPointerForDelegate((Delegate)f));
+            this.SetDrawingObjectCallback("on_drag", Marshal.GetFunctionPointerForDelegate(f));
         }
 
         /// <summary>Adds a callback for the resize event, that is, this callback is
@@ -205,7 +205,7 @@ namespace HalconDotNet
         /// HDrawingObjectCallback</param>
         public void OnSelect(HDrawingObject.HDrawingObjectCallback f)
         {
-            this.SetDrawingObjectCallback("on_select", Marshal.GetFunctionPointerForDelegate((Delegate)f));
+            this.SetDrawingObjectCallback("on_select", Marshal.GetFunctionPointerForDelegate(f));
         }
 
         /// <summary>Adds a callback for the resize event, that is, this callback is

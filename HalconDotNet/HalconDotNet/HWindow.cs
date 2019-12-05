@@ -131,7 +131,7 @@ namespace HalconDotNet
         public void OnContentUpdate(HWindow.ContentUpdateCallback f)
         {
             this._callback = f;
-            this.SetContentUpdateCallback(Marshal.GetFunctionPointerForDelegate((Delegate)this._callback), new IntPtr(0));
+            this.SetContentUpdateCallback(Marshal.GetFunctionPointerForDelegate(this._callback), new IntPtr(0));
         }
 
         /// <summary>

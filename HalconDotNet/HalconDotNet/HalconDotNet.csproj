@@ -32,7 +32,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,27 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationException.cs" />
-    <Compile Include="DevClearWindowDelegate.cs" />
-    <Compile Include="DevCloseWindowDelegate.cs" />
-    <Compile Include="DevDisplayDelegate.cs" />
-    <Compile Include="DevDispTextDelegate.cs" />
-    <Compile Include="DevGetWindowDelegate.cs" />
-    <Compile Include="DevOpenWindowDelegate.cs" />
-    <Compile Include="DevSetColorDelegate.cs" />
-    <Compile Include="DevSetColoredDelegate.cs" />
-    <Compile Include="DevSetDrawDelegate.cs" />
-    <Compile Include="DevSetLineWidthDelegate.cs" />
-    <Compile Include="DevSetLutDelegate.cs" />
-    <Compile Include="DevSetPaintDelegate.cs" />
-    <Compile Include="DevSetPartDelegate.cs" />
-    <Compile Include="DevSetShapeDelegate.cs" />
-    <Compile Include="DevSetWindowDelegate.cs" />
-    <Compile Include="DevSetWindowExtentsDelegate.cs" />
+    <Compile Include="Delegate\DevClearWindowDelegate.cs" />
+    <Compile Include="Delegate\DevCloseWindowDelegate.cs" />
+    <Compile Include="Delegate\DevDisplayDelegate.cs" />
+    <Compile Include="Delegate\DevDispTextDelegate.cs" />
+    <Compile Include="Delegate\DevGetWindowDelegate.cs" />
+    <Compile Include="Delegate\DevOpenWindowDelegate.cs" />
+    <Compile Include="Delegate\DevSetColorDelegate.cs" />
+    <Compile Include="Delegate\DevSetColoredDelegate.cs" />
+    <Compile Include="Delegate\DevSetDrawDelegate.cs" />
+    <Compile Include="Delegate\DevSetLineWidthDelegate.cs" />
+    <Compile Include="Delegate\DevSetLutDelegate.cs" />
+    <Compile Include="Delegate\DevSetPaintDelegate.cs" />
+    <Compile Include="Delegate\DevSetPartDelegate.cs" />
+    <Compile Include="Delegate\DevSetShapeDelegate.cs" />
+    <Compile Include="Delegate\DevSetWindowDelegate.cs" />
+    <Compile Include="Delegate\DevSetWindowExtentsDelegate.cs" />
+    <Compile Include="Delegate\HInitWindowEventHandler.cs" />
+    <Compile Include="Delegate\HMouseEventHandler.cs" />
     <Compile Include="EngineAPI.cs" />
     <Compile Include="HalconAPI.cs" />
     <Compile Include="HalconException.cs" />
+    <Compile Include="HalconWindowLayoutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HBarCode.cs" />
+    <Compile Include="HBarrier.cs" />
+    <Compile Include="HBeadInspectionModel.cs" />
     <Compile Include="HBgEsti.cs" />
     <Compile Include="HCalibData.cs" />
     <Compile Include="HCameraSetupModel.cs" />
@@ -76,14 +84,29 @@
     <Compile Include="HColorTransLUT.cs" />
     <Compile Include="HComponentModel.cs" />
     <Compile Include="HComponentTraining.cs" />
+    <Compile Include="HComputeDevice.cs" />
+    <Compile Include="HCondition.cs" />
     <Compile Include="HData.cs" />
     <Compile Include="HDataCode2D.cs" />
     <Compile Include="HDeformableModel.cs" />
     <Compile Include="HDeformableSurfaceMatchingResult.cs" />
     <Compile Include="HDeformableSurfaceModel.cs" />
     <Compile Include="HDescriptorModel.cs" />
+    <Compile Include="HDevEngine.cs" />
     <Compile Include="HDevEngineException.cs" />
+    <Compile Include="HDevOperatorWrapper.cs" />
+    <Compile Include="HDevOpFixedWindowImpl.cs" />
+    <Compile Include="HDevOpMultiWindowImpl.cs" />
+    <Compile Include="HDevProcedure.cs" />
+    <Compile Include="HDevProcedureCall.cs" />
+    <Compile Include="HDevProgram.cs" />
+    <Compile Include="HDevProgramCall.cs" />
+    <Compile Include="HDevWindowStack.cs" />
+    <Compile Include="HDlClassifier.cs" />
+    <Compile Include="HDlClassifierResult.cs" />
+    <Compile Include="HDlClassifierTrainResult.cs" />
     <Compile Include="HDrawingObject.cs" />
+    <Compile Include="HDualQuaternion.cs" />
     <Compile Include="HFeatureSet.cs" />
     <Compile Include="HFile.cs" />
     <Compile Include="HFramegrabber.cs" />
@@ -92,7 +115,20 @@
     <Compile Include="HHomMat2D.cs" />
     <Compile Include="HHomMat3D.cs" />
     <Compile Include="HImage.cs" />
+    <Compile Include="HInfo.cs" />
+    <Compile Include="HIOChannel.cs" />
+    <Compile Include="HIODevice.cs" />
+    <Compile Include="HLexicon.cs" />
+    <Compile Include="HMatrix.cs" />
     <Compile Include="HMeasure.cs" />
+    <Compile Include="HMessage.cs" />
+    <Compile Include="HMessageQueue.cs" />
+    <Compile Include="HMetrologyModel.cs" />
+    <Compile Include="HMisc.cs" />
+    <Compile Include="HMouseEventArgs.cs" />
+    <Compile Include="HMouseEventArgsWPF.cs" />
+    <Compile Include="HMouseEventHandler.cs" />
+    <Compile Include="HMutex.cs" />
     <Compile Include="HNCCModel.cs" />
     <Compile Include="HObject.cs" />
     <Compile Include="HObjectBase.cs" />
@@ -107,17 +143,25 @@
     <Compile Include="HOperatorException.cs" />
     <Compile Include="HOperatorSet.cs" />
     <Compile Include="HPose.cs" />
+    <Compile Include="HQuaternion.cs" />
     <Compile Include="HRegion.cs" />
     <Compile Include="HSampleIdentifier.cs" />
+    <Compile Include="HScatteredDataInterpolator.cs" />
     <Compile Include="HScene3D.cs" />
+    <Compile Include="HSerial.cs" />
     <Compile Include="HSerializedItem.cs" />
     <Compile Include="HShapeModel.cs" />
     <Compile Include="HShapeModel3D.cs" />
     <Compile Include="HSheetOfLightModel.cs" />
+    <Compile Include="HSmartWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="HSocket.cs" />
     <Compile Include="HStereoModel.cs" />
+    <Compile Include="HStructuredLightModel.cs" />
     <Compile Include="HSurfaceMatchingResult.cs" />
     <Compile Include="HSurfaceModel.cs" />
+    <Compile Include="HSystem.cs" />
     <Compile Include="HTemplate.cs" />
     <Compile Include="HTextModel.cs" />
     <Compile Include="HTextResult.cs" />
@@ -146,12 +190,18 @@
     <Compile Include="HVector.cs" />
     <Compile Include="HVectorAccessException.cs" />
     <Compile Include="HWindow.cs" />
+    <Compile Include="HWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HWindowControlDesigner.cs" />
     <Compile Include="HXLD.cs" />
     <Compile Include="HXLDCont.cs" />
+    <Compile Include="HXLDDistTrans.cs" />
     <Compile Include="HXLDExtPara.cs" />
     <Compile Include="HXLDModPara.cs" />
     <Compile Include="HXLDPara.cs" />
     <Compile Include="HXLDPoly.cs" />
+    <Compile Include="IHDevOperators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

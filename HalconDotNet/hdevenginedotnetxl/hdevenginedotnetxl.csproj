@@ -41,8 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HalconException.cs" />
+    <Compile Include="HDevEngine.cs" />
     <Compile Include="HDevEngineException.cs" />
-    <Compile Include="HTuple.cs" />
+    <Compile Include="HDevOpFixedWindowImpl.cs" />
+    <Compile Include="HDevOpMultiWindowImpl.cs" />
+    <Compile Include="HDevProcedure.cs" />
+    <Compile Include="HDevProcedureCall.cs" />
+    <Compile Include="IHDevOperators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

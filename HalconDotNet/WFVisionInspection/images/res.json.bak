@@ -1,0 +1,41 @@
+[{
+	"id": 1,
+	"name": "20181007混合编程视频样例",
+	"number": 8,
+	"path": "C:\\Users\\lei\\Documents\\Visual Studio 2015\\Projects\\WFVisionInspection\\WFVisionInspection\\images\\rotate\\",
+	"prefix": "rotate_",
+	"row1": 0,
+	"column1": 0,
+	"row2": 2592,
+	"column2": 1944
+},{
+	"id": 2,
+	"name": "2018.09拍摄钢管",
+	"number": 6,
+	"path": "C:\\Users\\lei\\Documents\\Visual Studio 2015\\Projects\\WFVisionInspection\\WFVisionInspection\\images\\",
+	"prefix": "mental_",
+	"row1": 0,
+	"column1": 620.059,
+	"row2": 1998.27,
+	"column2": 3603.45
+}, {
+	"id": 3,
+	"name": "2018.08东莞样图",
+	"number": 11,
+	"path": "C:\\Users\\lei\\Documents\\Visual Studio 2015\\Projects\\WFVisionInspection\\WFVisionInspection\\images\\plastics\\",
+	"prefix": "plastics_",
+	"row1": 0,
+	"column1": 0,
+	"row2": 445,
+	"column2": 330
+}, {
+	"id": 4,
+	"name": "2018.06塑料样图",
+	"number": 5,
+	"path": "C:\\Users\\lei\\Documents\\Visual Studio 2015\\Projects\\WFVisionInspection\\WFVisionInspection\\images\\metal\\",
+	"prefix": "tube_",
+	"row1": 0,
+	"column1": 620.059,
+	"row2": 1998.27,
+	"column2": 3603.45
+}]
