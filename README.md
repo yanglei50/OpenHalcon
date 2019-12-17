@@ -10,7 +10,7 @@ Halcon is great tools in Machine Vision. They provide a portable platform for en
 
 In current stage, this project don't have any commercial target.
 
-The source code is came from author, it is not Halcon's product and also didn't come from Halcon. All source code is come from Reverse Engineering and guess.
+The source code is came from author, it is not Halcon's product and also didn't come from Halcon. All source code is come from guess.
 
 ## 2. Language and Environment
 
