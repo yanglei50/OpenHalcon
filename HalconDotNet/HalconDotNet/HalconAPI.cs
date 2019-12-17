@@ -22,7 +22,7 @@ namespace HalconDotNet
         public static readonly bool isPlatform64 = IntPtr.Size > 4;
         /// <summary>True when running on a Windows platform.</summary>
         public static readonly bool isWindows = HalconAPI.testWindows();
-        private const string HalconDLL = "halconxl";
+        //private const string HalconDLL = "halconxl";
         private const CallingConvention HalconCall = CallingConvention.Cdecl;
         internal const int H_MSG_OK = 2;
         internal const int H_MSG_TRUE = 2;
@@ -46,39 +46,56 @@ namespace HalconDotNet
         ///   Setting DoLicenseError(false) disables the license error dialog and
         ///   application termination. Instead, an exception is raised.
         /// </summary>
-        [DllImport("halconxl", EntryPoint = "HLIDoLicenseError", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void DoLicenseError(bool state);
+        //[DllImport("halconxl", EntryPoint = "HLIDoLicenseError", CallingConvention = CallingConvention.Cdecl)]
+        public static void DoLicenseError(bool state)
+        {
+        }
 
+    
         /// <summary>
         ///   Setting HLIUseSpinLock(false) before calling the first operator
         ///   will cause HALCON to use mutex synchronization instead of spin locks.
         ///   This is usually less efficient but may prevent problems if a large
         ///   number of threads with differing priorities is used.
         /// </summary>
-        [DllImport("halconxl", EntryPoint = "HLIUseSpinLock", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void UseSpinLock(bool state);
+        //[DllImport("halconxl", EntryPoint = "HLIUseSpinLock", CallingConvention = CallingConvention.Cdecl)]
+        public static void UseSpinLock(bool state)
+        {
+        }
 
         /// <summary>
         ///   Setting HLIStartUpThreadPool(false) before calling the first
         ///   operator will disable the thread pool of HALCON
         /// </summary>
-        [DllImport("halconxl", EntryPoint = "HLIStartUpThreadPool", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void StartUpThreadPool(bool state);
+        //[DllImport("halconxl", EntryPoint = "HLIStartUpThreadPool", CallingConvention = CallingConvention.Cdecl)]
+        public static void StartUpThreadPool(bool state)
+        {
+        }
 
         /// <summary>
         ///   Aborts a draw_* operator as a right-click would (Windows only)
         /// </summary>
-        [DllImport("halconxl", EntryPoint = "HLICancelDraw", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void CancelDraw();
+        //[DllImport("halconxl", EntryPoint = "HLICancelDraw", CallingConvention = CallingConvention.Cdecl)]
+        public static void CancelDraw()
+        {
+        }
 
         /// <summary>
         ///   Returns whereas HALCON character encoding is set to UTF8 or locale.
         /// </summary>
-        [DllImport("halconxl", EntryPoint = "HLIIsUTF8Encoding", CallingConvention = CallingConvention.Cdecl)]
-        private static extern bool IsUTF8Encoding();
+        //[DllImport("halconxl", EntryPoint = "HLIIsUTF8Encoding", CallingConvention = CallingConvention.Cdecl)]
+        private static bool IsUTF8Encoding()
+        {
+            if (Encoding.Default == Encoding.UTF8) return true ;
+            else return false;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int HLIGetSerializedSize(IntPtr ptr, out ulong size);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        private static int HLIGetSerializedSize(IntPtr ptr, out ulong size)
+        {
+            size = 1024l;
+            return 1024;
+        }
 
         internal static int GetSerializedSize(byte[] header, out ulong size)
         {
@@ -88,84 +105,148 @@ namespace HalconDotNet
             return serializedSize;
         }
 
-        [DllImport("halconxl", EntryPoint = "HLILock", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern void Lock();
+        //[DllImport("halconxl", EntryPoint = "HLILock", CallingConvention = CallingConvention.Cdecl)]
+        internal static void Lock() {}
 
-        [DllImport("halconxl", EntryPoint = "HLIUnlock", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern void Unlock();
+        //[DllImport("halconxl", EntryPoint = "HLIUnlock", CallingConvention = CallingConvention.Cdecl)]
+        internal static void Unlock()
+        {
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXCreateHThreadContext(out IntPtr context);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXCreateHThreadContext(out IntPtr context)
+        {
+            context = new IntPtr(1024);
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXClearHThreadContext(IntPtr context);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXClearHThreadContext(IntPtr context)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXCreateHThread(IntPtr contextHandle, out IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXCreateHThread(IntPtr contextHandle, out IntPtr threadHandle)
+        {
+            threadHandle = new IntPtr();
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXClearHThread(IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXClearHThread(IntPtr threadHandle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXExitHThread(IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXExitHThread(IntPtr threadHandle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXStartHThreadDotNet(
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXStartHThreadDotNet(
           IntPtr threadHandle,
           HalconAPI.HDevThreadInternalCallback proc,
           IntPtr data,
-          out IntPtr threadId);
+          out IntPtr threadId)
+        {
+            threadId = new IntPtr();
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXPrepareDirectCall(IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXPrepareDirectCall(IntPtr threadHandle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXJoinHThread(IntPtr threadId);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXJoinHThread(IntPtr threadId)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXThreadLockLocalVar(IntPtr threadHandle, out IntPtr referenceCount);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXThreadLockLocalVar(IntPtr threadHandle, out IntPtr referenceCount)
+        {
+            referenceCount = new IntPtr();
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXThreadUnlockLocalVar(IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXThreadUnlockLocalVar(IntPtr threadHandle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXThreadLockGlobalVar(IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXThreadLockGlobalVar(IntPtr threadHandle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HXThreadUnlockGlobalVar(IntPtr threadHandle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HXThreadUnlockGlobalVar(IntPtr threadHandle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLICreateProcedure", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int CreateProcedure(int procIndex, out IntPtr proc);
+        ////[DllImport("halconxl", EntryPoint = "HLICreateProcedure", CallingConvention = CallingConvention.Cdecl)]
+        private static int CreateProcedure(int procIndex, out IntPtr proc)
+        {
+            proc = new IntPtr();
+            return 2;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [DllImport("halconxl", EntryPoint = "HLICallProcedure", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int CallProcedure(IntPtr proc);
+        //[DllImport("halconxl", EntryPoint = "HLICallProcedure", CallingConvention = CallingConvention.Cdecl)]
+        public static int CallProcedure(IntPtr proc)
+        {
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [DllImport("halconxl", EntryPoint = "HLIDestroyProcedure", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int DestroyProcedure(IntPtr proc, int procResult);
+        //[DllImport("halconxl", EntryPoint = "HLIDestroyProcedure", CallingConvention = CallingConvention.Cdecl)]
+        public static int DestroyProcedure(IntPtr proc, int procResult)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr HLIGetLogicalName(IntPtr proc);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        private static IntPtr HLIGetLogicalName(IntPtr proc)
+        {
+            return new IntPtr(1);
+        }
 
         internal static string GetLogicalName(IntPtr proc)
         {
             return Marshal.PtrToStringAnsi(HalconAPI.HLIGetLogicalName(proc));
         }
 
-        [DllImport("halconxl", EntryPoint = "HLILogicalName", CallingConvention = CallingConvention.Cdecl)]
-        private static extern IntPtr HLIGetLogicalName(int procIndex);
+        //[DllImport("halconxl", EntryPoint = "HLILogicalName", CallingConvention = CallingConvention.Cdecl)]
+        private static IntPtr HLIGetLogicalName(int procIndex)
+        {
+            return new IntPtr(1);
+        }
 
         internal static string GetLogicalName(int procIndex)
         {
             return Marshal.PtrToStringAnsi(HalconAPI.HLIGetLogicalName(procIndex));
         }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetProcIndex", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int GetProcIndex(IntPtr proc);
+        //[DllImport("halconxl", EntryPoint = "HLIGetProcIndex", CallingConvention = CallingConvention.Cdecl)]
+        private static int GetProcIndex(IntPtr proc)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int HLIGetErrorMessage(int err, IntPtr buffer);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        private static int HLIGetErrorMessage(int err, IntPtr buffer)
+        {
+            return 1;
+        }
 
         internal static string GetErrorMessage(int err)
         {
@@ -179,7 +260,7 @@ namespace HalconDotNet
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static IntPtr PreCall(int procIndex)
         {
-            IntPtr proc;
+            IntPtr proc = new IntPtr();
             int procedure = HalconAPI.CreateProcedure(procIndex, out proc);
             if (procedure != 2)
                 HOperatorException.throwInfo(procedure, "Could not create a new operator instance for id " + (object)procIndex);
@@ -189,26 +270,33 @@ namespace HalconDotNet
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static void PostCall(IntPtr proc, int procResult)
         {
-            int procIndex = HalconAPI.GetProcIndex(proc);
-            HalconAPI.HLIClearAllIOCT(proc);
-            int err = HalconAPI.DestroyProcedure(proc, procResult);
-            if (procIndex >= 0)
-            {
-                HOperatorException.throwOperator(err, procIndex);
-                HOperatorException.throwOperator(procResult, procIndex);
-            }
-            else
-            {
-                HOperatorException.throwOperator(err, "Unknown");
-                HOperatorException.throwOperator(procResult, "Unknown");
-            }
+            //int procIndex = HalconAPI.GetProcIndex(proc);
+            //HalconAPI.HLIClearAllIOCT(proc);
+            //int err = HalconAPI.DestroyProcedure(proc, procResult);
+            //if (procIndex >= 0)
+            //{
+            //    HOperatorException.throwOperator(err, procIndex);
+            //    HOperatorException.throwOperator(procResult, procIndex);
+            //}
+            //else
+            //{
+            //    HOperatorException.throwOperator(err, "Unknown");
+            //    HOperatorException.throwOperator(procResult, "Unknown");
+            //}
         }
 
-        [DllImport("halconxl", EntryPoint = "HLISetInputObject", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetInputObject(IntPtr proc, int parIndex, IntPtr key);
+        //[DllImport("halconxl", EntryPoint = "HLISetInputObject", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetInputObject(IntPtr proc, int parIndex, IntPtr key)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetOutputObject", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetOutputObject(IntPtr proc, int parIndex, out IntPtr key);
+        //[DllImport("halconxl", EntryPoint = "HLIGetOutputObject", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetOutputObject(IntPtr proc, int parIndex, out IntPtr key)
+        {
+            key = new IntPtr();
+            return 1;
+        }
 
         internal static void ClearObject(IntPtr key)
         {
@@ -218,8 +306,12 @@ namespace HalconDotNet
             HalconAPI.PostCall(proc, procResult);
         }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int HLICopyObject(IntPtr keyIn, out IntPtr keyOut);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        private static int HLICopyObject(IntPtr keyIn, out IntPtr keyOut)
+        {
+            keyOut = new IntPtr();
+            return 1;
+        }
 
         internal static IntPtr CopyObject(IntPtr key)
         {
@@ -259,20 +351,33 @@ namespace HalconDotNet
         }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [DllImport("halconxl", EntryPoint = "HLICreateTuple", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int CreateTuple(out IntPtr tuple);
+        //[DllImport("halconxl", EntryPoint = "HLICreateTuple", CallingConvention = CallingConvention.Cdecl)]
+        public static int CreateTuple(out IntPtr tuple)
+        {
+            tuple = new IntPtr();
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [DllImport("halconxl", EntryPoint = "HLIInitOCT", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int InitOCT(IntPtr proc, int parIndex);
+        //[DllImport("halconxl", EntryPoint = "HLIInitOCT", CallingConvention = CallingConvention.Cdecl)]
+        public static int InitOCT(IntPtr proc, int parIndex)
+        {
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int HLIClearAllIOCT(IntPtr proc);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        public static int HLIClearAllIOCT(IntPtr proc)
+        {
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        [DllImport("halconxl", EntryPoint = "HLIDestroyTuple", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int DestroyTuple(IntPtr tuple);
+        //[DllImport("halconxl", EntryPoint = "HLIDestroyTuple", CallingConvention = CallingConvention.Cdecl)]
+        public static int DestroyTuple(IntPtr tuple)
+        {
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static void StoreTuple(IntPtr tupleHandle, HTuple tuple)
@@ -333,14 +438,24 @@ namespace HalconDotNet
                 throw new HOperatorException(err);
         }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetInputTuple", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetInputTuple(IntPtr proc, int parIndex, out IntPtr tuple);
+        //[DllImport("halconxl", EntryPoint = "HLIGetInputTuple", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetInputTuple(IntPtr proc, int parIndex, out IntPtr tuple)
+        {
+            tuple = new IntPtr();
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLICreateElements", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int CreateElements(IntPtr tuple, int length);
+        //[DllImport("halconxl", EntryPoint = "HLICreateElements", CallingConvention = CallingConvention.Cdecl)]
+        internal static int CreateElements(IntPtr tuple, int length)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLICreateElementsOfType", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int CreateElementsOfType(IntPtr tuple, int length, HTupleType type);
+        //[DllImport("halconxl", EntryPoint = "HLICreateElementsOfType", CallingConvention = CallingConvention.Cdecl)]
+        internal static int CreateElementsOfType(IntPtr tuple, int length, HTupleType type)
+        {
+            return 1;
+        }
 
         internal static int CreateInputTuple(IntPtr proc, int parIndex, int length, out IntPtr tuple)
         {
@@ -350,29 +465,57 @@ namespace HalconDotNet
             return inputTuple;
         }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetOutputTuple", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetOutputTuple(IntPtr proc, int parIndex, out IntPtr tuple);
+        //[DllImport("halconxl", EntryPoint = "HLIGetOutputTuple", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetOutputTuple(IntPtr proc, int parIndex, out IntPtr tuple)
+        {
+            tuple = new IntPtr();
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetTupleLength", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetTupleLength(IntPtr tuple, out int length);
+        //[DllImport("halconxl", EntryPoint = "HLIGetTupleLength", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetTupleLength(IntPtr tuple, out int length)
+        {
+            length = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetTupleTypeScanElem", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetTupleTypeScanElem(IntPtr tuple, out int type);
+        //[DllImport("halconxl", EntryPoint = "HLIGetTupleTypeScanElem", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetTupleTypeScanElem(IntPtr tuple, out int type)
+        {
+            type = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetElementType", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetElementType(IntPtr tuple, int index, out HTupleType type);
+        //[DllImport("halconxl", EntryPoint = "HLIGetElementType", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetElementType(IntPtr tuple, int index, out HTupleType type)
+        {
+            type = (HTupleType) 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetI", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetI(IntPtr tuple, int index, int intValue);
+        //[DllImport("halconxl", EntryPoint = "HLISetI", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetI(IntPtr tuple, int index, int intValue)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetL", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetL(IntPtr tuple, int index, long longValue);
+        //[DllImport("halconxl", EntryPoint = "HLISetL", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetL(IntPtr tuple, int index, long longValue)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetD", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetD(IntPtr tuple, int index, double doubleValue);
+        //[DllImport("halconxl", EntryPoint = "HLISetD", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetD(IntPtr tuple, int index, double doubleValue)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HLISetS(IntPtr tuple, int index, IntPtr stringValue);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HLISetS(IntPtr tuple, int index, IntPtr stringValue)
+        {
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static IntPtr ToHalconHGlobalEncoding(string dotnet)
@@ -497,35 +640,69 @@ namespace HalconDotNet
             HalconAPI.Store(proc, parIndex, HData.ConcatArray(data));
         }
 
-        [DllImport("halconxl", EntryPoint = "HLISetIArr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetIArr(IntPtr tuple, int[] intArray);
+        //[DllImport("halconxl", EntryPoint = "HLISetIArr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetIArr(IntPtr tuple, int[] intArray)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetIArrPtr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetIArrPtr(IntPtr tuple, int[] intArray, int length);
+        //[DllImport("halconxl", EntryPoint = "HLISetIArrPtr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetIArrPtr(IntPtr tuple, int[] intArray, int length)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetLArr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetLArr(IntPtr tuple, long[] longArray);
+        //[DllImport("halconxl", EntryPoint = "HLISetLArr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetLArr(IntPtr tuple, long[] longArray)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetLArrPtr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetLArrPtr(IntPtr tuple, long[] longArray, int length);
+        //[DllImport("halconxl", EntryPoint = "HLISetLArrPtr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetLArrPtr(IntPtr tuple, long[] longArray, int length)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetDArr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetDArr(IntPtr tuple, double[] doubleArray);
+        //[DllImport("halconxl", EntryPoint = "HLISetDArr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetDArr(IntPtr tuple, double[] doubleArray)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLISetDArrPtr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int SetDArrPtr(IntPtr tuple, double[] doubleArray, int length);
+        //[DllImport("halconxl", EntryPoint = "HLISetDArrPtr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int SetDArrPtr(IntPtr tuple, double[] doubleArray, int length)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetI", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetI(IntPtr tuple, int index, out int intValue);
+        //[DllImport("halconxl", EntryPoint = "HLIGetI", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetI(IntPtr tuple, int index, out int intValue)
+        {
+            intValue = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetL", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetL(IntPtr tuple, int index, out long longValue);
+        //[DllImport("halconxl", EntryPoint = "HLIGetL", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetL(IntPtr tuple, int index, out long longValue)
+        {
+            longValue = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetD", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetD(IntPtr tuple, int index, out double doubleValue);
+        //[DllImport("halconxl", EntryPoint = "HLIGetD", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetD(IntPtr tuple, int index, out double doubleValue)
+        {
+            doubleValue = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        private static extern int HLIGetS(IntPtr tuple, int index, out IntPtr stringPtr);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        private static int HLIGetS(IntPtr tuple, int index, out IntPtr stringPtr)
+        {
+            stringPtr = new IntPtr();
+            return 1;
+        }
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public static string FromHalconEncoding(IntPtr halcon)
@@ -693,14 +870,23 @@ namespace HalconDotNet
             return err;
         }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetIArr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetIArr(IntPtr tuple, [Out] int[] intArray);
+        //[DllImport("halconxl", EntryPoint = "HLIGetIArr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetIArr(IntPtr tuple, [Out] int[] intArray)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetLArr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetLArr(IntPtr tuple, [Out] long[] longArray);
+        //[DllImport("halconxl", EntryPoint = "HLIGetLArr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetLArr(IntPtr tuple, [Out] long[] longArray)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", EntryPoint = "HLIGetDArr", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int GetDArr(IntPtr tuple, [Out] double[] doubleArray);
+        //[DllImport("halconxl", EntryPoint = "HLIGetDArr", CallingConvention = CallingConvention.Cdecl)]
+        internal static int GetDArr(IntPtr tuple, [Out] double[] doubleArray)
+        {
+            return 1;
+        }
 
         /// <summary>
         /// Unpin the tuple's data, but first check if tuple is null. Notice that
@@ -712,23 +898,44 @@ namespace HalconDotNet
             tuple?.UnpinTuple();
         }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HWindowStackPush(long win_handle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HWindowStackPush(long win_handle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HWindowStackPop(out long win_handle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static  int HWindowStackPop(out long win_handle)
+        {
+            win_handle = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HWindowStackGetActive(out long win_handle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HWindowStackGetActive(out long win_handle)
+        {
+            win_handle = 0;
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HWindowStackSetActive(long win_handle);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HWindowStackSetActive(long win_handle)
+        {
+            return 1;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HWindowStackIsOpen(out bool is_open);
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HWindowStackIsOpen(out bool is_open)
+        {
+            is_open = false;
+            return 2;
+        }
 
-        [DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
-        internal static extern int HWindowStackCloseAll();
+        //[DllImport("halconxl", CallingConvention = CallingConvention.Cdecl)]
+        internal static int HWindowStackCloseAll()
+        {
+            return 1;
+        }
 
         internal static bool IsError(int err)
         {

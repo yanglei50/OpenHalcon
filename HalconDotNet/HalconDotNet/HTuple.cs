@@ -346,9 +346,14 @@ namespace HalconDotNet
         {
             get
             {
-                if (index < 0 || index >= this.data.Length)
-                    throw new HTupleAccessException("Index out of range");
-                return this.data.GetElement(index, this);
+                if (this.data.Length == 0)
+                    return null;
+                else
+                {
+                    if (index < 0 || index >= this.data.Length)
+                        throw new HTupleAccessException("Index out of range");
+                    return this.data.GetElement(index, this);
+                }
             }
             set
             {

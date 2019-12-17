@@ -520,19 +520,19 @@ namespace HalconDotNet
           string machine)
         {
             this.Dispose();
-            IntPtr proc = HalconAPI.PreCall(1178);
-            HalconAPI.StoreI(proc, 0, row);
-            HalconAPI.StoreI(proc, 1, column);
-            HalconAPI.StoreI(proc, 2, width);
-            HalconAPI.StoreI(proc, 3, height);
-            HalconAPI.StoreIP(proc, 4, fatherWindow);
-            HalconAPI.StoreS(proc, 5, mode);
-            HalconAPI.StoreS(proc, 6, machine);
-            HalconAPI.InitOCT(proc, 0);
-            int err = HalconAPI.CallProcedure(proc);
-            int procResult = this.Load(proc, 0, err);
-            HalconAPI.PostCall(proc, procResult);
-            GC.KeepAlive((object)this);
+            //IntPtr proc = HalconAPI.PreCall(1178);
+            //HalconAPI.StoreI(proc, 0, row);
+            //HalconAPI.StoreI(proc, 1, column);
+            //HalconAPI.StoreI(proc, 2, width);
+            //HalconAPI.StoreI(proc, 3, height);
+            //HalconAPI.StoreIP(proc, 4, fatherWindow);
+            //HalconAPI.StoreS(proc, 5, mode);
+            //HalconAPI.StoreS(proc, 6, machine);
+            //HalconAPI.InitOCT(proc, 0);
+            //int err = HalconAPI.CallProcedure(proc);
+            //int procResult = this.Load(proc, 0, err);
+            //HalconAPI.PostCall(proc, procResult);
+            //GC.KeepAlive((object)this);
         }
 
         /// <summary>

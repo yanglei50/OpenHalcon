@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HalConVSIXProject", "HalCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFVisionInspection", "WFVisionInspection\WFVisionInspection.csproj", "{35794663-BAF9-4DBF-A984-1278715560A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "surface_scratch", "surface_scratch\surface_scratch.csproj", "{59344BA7-32A6-48C7-AAE0-7185F919A0FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{35794663-BAF9-4DBF-A984-1278715560A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35794663-BAF9-4DBF-A984-1278715560A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35794663-BAF9-4DBF-A984-1278715560A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59344BA7-32A6-48C7-AAE0-7185F919A0FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59344BA7-32A6-48C7-AAE0-7185F919A0FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59344BA7-32A6-48C7-AAE0-7185F919A0FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59344BA7-32A6-48C7-AAE0-7185F919A0FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

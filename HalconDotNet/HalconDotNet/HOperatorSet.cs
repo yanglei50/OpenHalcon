@@ -7326,11 +7326,11 @@ namespace HalconDotNet
         /// <param name="check">Desired control mode. Default: "default"</param>
         public static void SetCheck(HTuple check)
         {
-            IntPtr proc = HalconAPI.PreCall(318);
-            HalconAPI.Store(proc, 0, check);
-            int procResult = HalconAPI.CallProcedure(proc);
-            HalconAPI.UnpinTuple(check);
-            HalconAPI.PostCall(proc, procResult);
+            //IntPtr proc = HalconAPI.PreCall(318);
+            //HalconAPI.Store(proc, 0, check);
+            //int procResult = HalconAPI.CallProcedure(proc);
+            //HalconAPI.UnpinTuple(check);
+            //HalconAPI.PostCall(proc, procResult);
         }
 
         /// <summary>Initialization of the HALCON system.</summary>

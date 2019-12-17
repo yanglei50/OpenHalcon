@@ -202,7 +202,18 @@
     <Compile Include="HXLDPara.cs" />
     <Compile Include="HXLDPoly.cs" />
     <Compile Include="IHDevOperators.cs" />
+    <Compile Include="MyHWindowControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MyHWindowControl.Designer.cs">
+      <DependentUpon>MyHWindowControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyHWindowControl.resx">
+      <DependentUpon>MyHWindowControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

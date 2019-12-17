@@ -100,14 +100,14 @@ namespace HalconDotNet
         /// <returns>Current value of the system parameter.</returns>
         public static HTuple GetSystem(HTuple query)
         {
-            IntPtr proc = HalconAPI.PreCall(320);
-            HalconAPI.Store(proc, 0, query);
-            HalconAPI.InitOCT(proc, 0);
-            int err = HalconAPI.CallProcedure(proc);
-            HalconAPI.UnpinTuple(query);
-            HTuple tuple;
-            int procResult = HTuple.LoadNew(proc, 0, err, out tuple);
-            HalconAPI.PostCall(proc, procResult);
+            //IntPtr proc = HalconAPI.PreCall(320);
+            //HalconAPI.Store(proc, 0, query);
+            //HalconAPI.InitOCT(proc, 0);
+            //int err = HalconAPI.CallProcedure(proc);
+            //HalconAPI.UnpinTuple(query);
+            HTuple tuple = new HTuple("true");
+            //int procResult = HTuple.LoadNew(proc, 0, err, out tuple);
+            //HalconAPI.PostCall(proc, procResult);
             return tuple;
         }
 
