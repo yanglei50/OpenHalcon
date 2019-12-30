@@ -1,0 +1,8 @@
+﻿<SyntaxModes version="1.0">
+  <Mode file = "Lua-Mode.xshd"
+        name = "Lua"
+        extensions = ".lua"/>
+  <Mode file       = "SQL-Mode.xshd"
+        name       = "SQL"
+        extensions = ".sql"/>
+</SyntaxModes>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OpenCvSharp;
 
 namespace HalconDotNet
 {
@@ -40900,18 +40901,23 @@ namespace HalconDotNet
             HalconAPI.PostCall(proc, procResult);
         }
 
+
+
         /// <summary>Read an image with different file formats.</summary>
         /// <param name="image">Read image.</param>
         /// <param name="fileName">Name of the image to be read. Default: "printer_chip/printer_chip_01"</param>
         public static void ReadImage(out HObject image, HTuple fileName)
         {
-            IntPtr proc = HalconAPI.PreCall(1658);
-            HalconAPI.Store(proc, 0, fileName);
-            HalconAPI.InitOCT(proc, 1);
-            int err = HalconAPI.CallProcedure(proc);
-            HalconAPI.UnpinTuple(fileName);
-            int procResult = HObject.LoadNew(proc, 1, err, out image);
-            HalconAPI.PostCall(proc, procResult);
+            var img1 = new Mat(fileName.S, ImreadModes.Color);
+            image = new HObject();
+
+            //IntPtr proc = HalconAPI.PreCall(1658);
+            //HalconAPI.Store(proc, 0, fileName);
+            //HalconAPI.InitOCT(proc, 1);
+            //int err = HalconAPI.CallProcedure(proc);
+            //HalconAPI.UnpinTuple(fileName);
+            //int procResult = HObject.LoadNew(proc, 1, err, out image);
+            //HalconAPI.PostCall(proc, procResult);
         }
 
         /// <summary>Open a file in ASCII or a binary format.</summary>

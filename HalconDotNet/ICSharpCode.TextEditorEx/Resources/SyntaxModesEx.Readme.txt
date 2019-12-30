@@ -1,0 +1,20 @@
+﻿Lua syntax highlighting based on http://github.com/nano-byte/ICSharpCode.TextEditor
+SQL syntax highlighting based on http://www.codeproject.com/Articles/111969/Extending-ICSharpCode-TextEditor-Syntax-Highlighti
+
+All supported:
+ASP/XHTML
+BAT
+Boo
+Coco
+C++.NET
+C#
+HTML
+Java
+JavaScript
+Patch
+PHP
+TeX
+VBNET
+XML
+Lua
+SQL

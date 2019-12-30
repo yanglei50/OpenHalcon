@@ -44,12 +44,12 @@ public partial class HDevelopExport
         //the maximum value gets a higher priority,
         //
         //Parse input tuple WidthLimit
-        if (hv_WidthLimit.TupleLength()==0||hv_WidthLimit.TupleLess(0))
+        if (hv_WidthLimit.TupleLength() == 0 || hv_WidthLimit.TupleLess(0))
         {
             hv_MinWidth = 500;
             hv_MaxWidth = 800;
         }
-        else if (hv_WidthLimit.TupleLength()==1)
+        else if (hv_WidthLimit.TupleLength() == 1)
         {
             hv_MinWidth = 0;
             hv_MaxWidth = hv_WidthLimit.Clone();
@@ -60,12 +60,12 @@ public partial class HDevelopExport
             hv_MaxWidth = hv_WidthLimit.TupleSelect(1);
         }
         //Parse input tuple HeightLimit
-        if (hv_HeightLimit.TupleLength()==0 || hv_HeightLimit.TupleLess(0))
+        if (hv_HeightLimit.TupleLength() == 0 || hv_HeightLimit.TupleLess(0))
         {
             hv_MinHeight = 400;
             hv_MaxHeight = 600;
         }
-        else if (hv_HeightLimit.TupleLength()==1)
+        else if (hv_HeightLimit.TupleLength() == 1)
         {
             hv_MinHeight = 0;
             hv_MaxHeight = hv_HeightLimit.Clone();
@@ -80,7 +80,8 @@ public partial class HDevelopExport
         hv_ResizeFactor = 1;
         HOperatorSet.GetImageSize(ho_Image, out hv_ImageWidth, out hv_ImageHeight);
         //First, expand window to the minimum extents (if necessary).
-        if (hv_MinWidth.TupleGreater(hv_ImageWidth)||hv_MinHeight.TupleGreater(hv_ImageHeight))
+        //if (hv_MinWidth.TupleGreater(hv_ImageWidth)||hv_MinHeight.TupleGreater(hv_ImageHeight))
+        if (hv_MinWidth>hv_ImageWidth || hv_MinHeight>hv_ImageHeight)
         {
             hv_ResizeFactor = (((((hv_MinWidth.TupleReal()) / hv_ImageWidth)).TupleConcat(
                 (hv_MinHeight.TupleReal()) / hv_ImageHeight))).TupleMax();
@@ -88,7 +89,7 @@ public partial class HDevelopExport
         hv_TempWidth = hv_ImageWidth * hv_ResizeFactor;
         hv_TempHeight = hv_ImageHeight * hv_ResizeFactor;
         //Then, shrink window to maximum extents (if necessary).
-        if (hv_MaxWidth.TupleLess(hv_TempWidth)||hv_MaxHeight.TupleLess(hv_TempHeight))
+        if (hv_MaxWidth.TupleLess(hv_TempWidth) || hv_MaxHeight.TupleLess(hv_TempHeight))
         {
             hv_ResizeFactor = hv_ResizeFactor * ((((((hv_MaxWidth.TupleReal()) / hv_TempWidth)).TupleConcat(
                 (hv_MaxHeight.TupleReal()) / hv_TempHeight))).TupleMin());
@@ -135,7 +136,7 @@ public partial class HDevelopExport
         HOperatorSet.GetSystem("operating_system", out hv_OS);
         // dev_get_preferences(...); only in hdevelop
         // dev_set_preferences(...); only in hdevelop
-        if (hv_Size_COPY_INP_TMP==-1)
+        if (hv_Size_COPY_INP_TMP == -1)
         {
             hv_Size_COPY_INP_TMP = 16;
         }
@@ -218,7 +219,7 @@ public partial class HDevelopExport
         for (hv_Fdx = 0; (int)hv_Fdx <= (int)(hv_Fonts.TupleLength() - 1); hv_Fdx = (int)hv_Fdx + 1)
         {
             hv_Indices = hv_AvailableFonts.TupleFind(hv_Fonts.TupleSelect(hv_Fdx));
-            if (hv_Indices.TupleLength()>0)
+            if (hv_Indices.TupleLength() > 0)
             {
                 if ((int)(new HTuple(((hv_Indices.TupleSelect(0))).TupleGreaterEqual(0))) != 0)
                 {
@@ -283,7 +284,7 @@ public partial class HDevelopExport
         //Convert the parameter Box to generic parameters.
         hv_GenParamName = new HTuple();
         hv_GenParamValue = new HTuple();
-        if (hv_Box.TupleLength()>0)
+        if (hv_Box.TupleLength() > 0)
         {
             if (hv_Box.TupleSelect(0).TupleEqual("false"))
             {
@@ -298,7 +299,7 @@ public partial class HDevelopExport
                 hv_GenParamValue = hv_GenParamValue.TupleConcat(hv_Box.TupleSelect(0));
             }
         }
-        if (hv_Box.TupleLength()>1)
+        if (hv_Box.TupleLength() > 1)
         {
             if (hv_Box.TupleSelect(1).TupleEqual("false"))
             {
@@ -411,7 +412,7 @@ public partial class HDevelopExport
         //Convert the parameter Box to generic parameters.
         hv_GenParamName = new HTuple();
         hv_GenParamValue = new HTuple();
-        if (hv_Box.TupleLength()>0)
+        if (hv_Box.TupleLength() > 0)
         {
             if (hv_Box.TupleSelect(0).TupleEqual("false"))
             {
@@ -426,7 +427,7 @@ public partial class HDevelopExport
                 hv_GenParamValue = hv_GenParamValue.TupleConcat(hv_Box.TupleSelect(0));
             }
         }
-        if (hv_Box.TupleLength()>0)
+        if (hv_Box.TupleLength() > 0)
         {
             if (hv_Box.TupleSelect(1).TupleEqual("false"))
             {
