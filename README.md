@@ -24,3 +24,5 @@ In first stage, I just plan to build up Halcon core system to help people unders
 
 Name: Lawrence Yang
 Contact: lawrence.yang.cmcc@gmail.com
+
+This is open project, if you have interest to involved, let me know!
