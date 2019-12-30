@@ -20,6 +20,8 @@ We use  MS VS2015 to build this system. Original Halcon is written by C#, and al
 
 In first stage, I just plan to build up Halcon core system to help people understand algorithm. In second stage, I plan to build up Halcon IDE platform.
 
+Modify ICSharpCode to implement Halcon IDE. 2019.12
+
 ## 4. About author
 
 Name: Lawrence Yang
